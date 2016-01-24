@@ -1,0 +1,12 @@
+Đề bài:
+=======
+
+Hãy tận dụng class MyBoardItem để vẽ các đường chéo lên trên đối tượng đồ họa của lớp Board. Với yêu cầu:
+ - Phải dùng được hàm drawBoardItem của lớp Board.
+ - Phải dùng được hàm drawLine của MyBoardItem.
+ - Mỗi lần trước khi vẽ một đường chéo thì in thông tin tọa độ ra TextArea ở lớp Main
+ - Sau khi vẽ một đường chéo thì thông báo "done" ra TextArea ở lớp Main.
+
+Hướng dẫn:
+- Sử dụng Proxy design patterns để thiết kế lớp BoardItemProxy, thừa kế từ BoardItem và thực hiện "proxy"-hóa hàm "drawLine" của lớp MyBoardItem;
+- Trong class Main hãy thêm đoạn code sử dụng BoardItemProxy vào cuối hàm "drawBoardButton_clickHandler"

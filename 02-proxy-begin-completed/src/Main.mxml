@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Application xmlns:fx="http://ns.adobe.com/mxml/2009"
+			   xmlns:s="library://ns.adobe.com/flex/spark"
+			   xmlns:classes="some.useful.classes.*" xmlns:classes2="some.utility.classes.*">
+	<fx:Script>
+		<![CDATA[
+		import my.patterns.proxy.BoardItemProxy;
+
+		[Bindable]
+		private var pointString:String = '{"x1":100,"y1":100,"x2":150,"y2":150}';
+
+		protected function drawLineGroupButton_clickHandler(event:MouseEvent):void {
+			var point:Object = JSON.parse(pointString);
+			lineGroup.draw(point.x1, point.x2, point.y1, point.y2);
+		}
+
+		protected function drawBoardButton_clickHandler(event:MouseEvent):void {
+			var point:Object = JSON.parse(pointString);
+			var bprox:BoardItemProxy = new BoardItemProxy(textArea);
+			board.drawBoardItem(bprox, point.x1, point.x2, point.y1, point.y2);
+		}
+		]]>
+	</fx:Script>
+
+	<s:layout>
+		<s:VerticalLayout/>
+	</s:layout>
+
+	<s:FormItem label="Input (x1,y1,x2,y2)">
+		<s:TextArea id="textArea" text="{pointString}" height="50"/>
+	</s:FormItem>
+	<s:Button id="drawLineGroupButton" label="Draw to line group" click="drawLineGroupButton_clickHandler(event)"/>
+	<classes2:LineGroup id="lineGroup" height="150"/>
+	<s:Button id="drawBoardButton" label="Draw to board" click="drawBoardButton_clickHandler(event)"/>
+	<classes:Board id="board" width="100%" height="200"
+				   title="How to draw to the Board using the LineGroup???">
+		<classes:layout>
+			<s:HorizontalLayout/>
+		</classes:layout>
+	</classes:Board>
+</s:Application>
