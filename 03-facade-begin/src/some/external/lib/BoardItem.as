@@ -4,15 +4,17 @@
 package some.external.lib {
 import mx.core.IVisualElement;
 
-public class BoardItem {
+import spark.components.Group;
+
+public class BoardItem extends Group{
     public function drawLine(x1:Number, x2:Number, y1:Number, y2:Number):void
     {
         //Abstract, do nothing
     }
-    public function getVisualElement():IVisualElement
+
+    public function drawText(msg:String):void
     {
         //Abstract, do nothing
-        return null;
     }
 }
 }

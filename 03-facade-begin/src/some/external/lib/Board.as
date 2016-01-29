@@ -4,10 +4,11 @@ package some.external.lib
 	
 	public class Board extends Panel
 	{
-		public function drawBoardItem(item:BoardItem, x1:Number, x2:Number, y1:Number, y2:Number):void
+		public function drawBoardItem(item:BoardItem, x1:Number, x2:Number, y1:Number, y2:Number, msg:String):void
 		{
 			item.drawLine(x1, x2, y1, y2);
-			this.addElement(item.getVisualElement());
+			item.drawText(msg);
+			this.addElement(item);
 		}
 	}
 }
