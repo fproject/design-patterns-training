@@ -1,0 +1,8 @@
+Đề bài:
+=======
+
+Hãy tận dụng class LineGroup để vẽ các đường chéo lên trên đối tượng đồ họa của lớp Board. Với yêu cầu phải dùng được hàm drawBoardItem của lớp Board.
+
+Hướng dẫn:
+- Sử dụng Adapter design patterns để thiết kế lớp MyBoardItem, thừa kế từ BoardItem và "adapt" hàm "draw" của lớp LineGroup thành hàm "drawLine" của lớp BoardItem.
+- Trong class Main hãy thêm đoạn code sử dụng MyBoardItem vào cuối hàm "drawBoardButton_clickHandler"
