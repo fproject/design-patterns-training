@@ -3,27 +3,22 @@
                xmlns:s="library://ns.adobe.com/flex/spark">
     <fx:Script>
 		<![CDATA[
-        import my.patterns.Dog;
-        import my.patterns.Cat;
-        import my.patterns.Duck;
-        import my.patterns.Animal;
+        import my.patterns.GlobalClass;
 
-        private var animals:Array = [];
+        public static var globalObj:GlobalClass;
 
-        protected function addAnimalButton_clickHandler(event:MouseEvent):void {
-            if (larryRadio.selected)
-                animals.push(new Cat());
-            else if (moeRadio.selected)
-                animals.push(new Duck());
-            else
-                animals.push(new Dog());
+        protected function fooButton_clickHandler(event:MouseEvent):void {
+            if (globalObj == null)
+                globalObj = new GlobalClass();
+            globalObj.value = 1;
+            textArea.appendText("\r\nfoo: globalObj value is " + globalObj.value);
         }
 
-        protected function animalSayButton_clickHandler(event:MouseEvent):void {
-            textArea.text = null;
-            for each (var role:Animal in animals) {
-                textArea.appendText(role.say());
-            }
+        protected function barButton_clickHandler(event:MouseEvent):void {
+            if (globalObj == null)
+                globalObj = new GlobalClass();
+            globalObj.value = 2;
+            textArea.appendText("\r\nbar: globalObj value is " + globalObj.value);
         }
         ]]>
 	</fx:Script>
@@ -32,12 +27,7 @@
         <s:VerticalLayout/>
     </s:layout>
 
-    <s:FormItem label="Choose object type">
-        <s:RadioButton id="larryRadio" label="Larry" groupName="g" selected="true"/>
-        <s:RadioButton id="moeRadio" label="Moe" groupName="g"/>
-        <s:RadioButton id="curlyRadio" label="Curly" groupName="g"/>
-    </s:FormItem>
-    <s:Button id="addObjectButton" label="Add object" click="addAnimalButton_clickHandler(event)"/>
-    <s:Button id="slapStickButton" label="Slap stick" click="animalSayButton_clickHandler(event)"/>
+    <s:Button id="fooButton" label="Foo" click="fooButton_clickHandler(event)"/>
+    <s:Button id="barButton" label="Bar" click="barButton_clickHandler(event)"/>
     <s:TextArea width="100%" id="textArea" height="300"/>
 </s:Application>
