@@ -3,26 +3,26 @@
                xmlns:s="library://ns.adobe.com/flex/spark">
     <fx:Script>
 		<![CDATA[
-        import my.patterns.Curly;
-        import my.patterns.Larry;
-        import my.patterns.Moe;
-        import my.patterns.Stooge;
+        import my.patterns.Dog;
+        import my.patterns.Cat;
+        import my.patterns.Duck;
+        import my.patterns.Animal;
 
-        private var roles:Array = [];
-        protected function addObjectButton_clickHandler(event:MouseEvent):void {
+        private var animals:Array = [];
+
+        protected function addAnimalButton_clickHandler(event:MouseEvent):void {
             if (larryRadio.selected)
-                roles.push(new Larry());
+                animals.push(new Cat());
             else if (moeRadio.selected)
-                roles.push(new Moe());
+                animals.push(new Duck());
             else
-                roles.push(new Curly());
+                animals.push(new Dog());
         }
 
-        protected function slapStickButton_clickHandler(event:MouseEvent):void {
+        protected function animalSayButton_clickHandler(event:MouseEvent):void {
             textArea.text = null;
-            for each (var role:Stooge in roles)
-            {
-                textArea.appendText(role.slapStick());
+            for each (var role:Animal in animals) {
+                textArea.appendText(role.say());
             }
         }
         ]]>
@@ -37,7 +37,7 @@
         <s:RadioButton id="moeRadio" label="Moe" groupName="g"/>
         <s:RadioButton id="curlyRadio" label="Curly" groupName="g"/>
     </s:FormItem>
-    <s:Button id="addObjectButton" label="Add object" click="addObjectButton_clickHandler(event)"/>
-    <s:Button id="slapStickButton" label="Slap stick" click="slapStickButton_clickHandler(event)"/>
+    <s:Button id="addObjectButton" label="Add object" click="addAnimalButton_clickHandler(event)"/>
+    <s:Button id="slapStickButton" label="Slap stick" click="animalSayButton_clickHandler(event)"/>
     <s:TextArea width="100%" id="textArea" height="300"/>
 </s:Application>
