@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Application xmlns:fx="http://ns.adobe.com/mxml/2009"
+               xmlns:s="library://ns.adobe.com/flex/spark">
+    <fx:Script>
+		<![CDATA[
+        import my.patterns.Curly;
+        import my.patterns.Larry;
+        import my.patterns.Moe;
+        import my.patterns.Stooge;
+
+        private var roles:Array = [];
+        protected function addObjectButton_clickHandler(event:MouseEvent):void {
+            if (larryRadio.selected)
+                roles.push(new Larry());
+            else if (moeRadio.selected)
+                roles.push(new Moe());
+            else
+                roles.push(new Curly());
+        }
+
+        protected function slapStickButton_clickHandler(event:MouseEvent):void {
+            textArea.text = null;
+            for each (var role:Stooge in roles)
+            {
+                textArea.appendText(role.slapStick());
+            }
+        }
+        ]]>
+	</fx:Script>
+
+    <s:layout>
+        <s:VerticalLayout/>
+    </s:layout>
+
+    <s:FormItem label="Choose object type">
+        <s:RadioButton id="larryRadio" label="Larry" groupName="g" selected="true"/>
+        <s:RadioButton id="moeRadio" label="Moe" groupName="g"/>
+        <s:RadioButton id="curlyRadio" label="Curly" groupName="g"/>
+    </s:FormItem>
+    <s:Button id="addObjectButton" label="Add object" click="addObjectButton_clickHandler(event)"/>
+    <s:Button id="slapStickButton" label="Slap stick" click="slapStickButton_clickHandler(event)"/>
+    <s:TextArea width="100%" id="textArea" height="300"/>
+</s:Application>
