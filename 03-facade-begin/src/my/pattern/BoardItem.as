@@ -1,7 +1,7 @@
 /**
  * Created by nguye on 1/23/2016.
  */
-package some.external.lib {
+package my.pattern {
 import mx.core.IVisualElement;
 
 import spark.components.Group;

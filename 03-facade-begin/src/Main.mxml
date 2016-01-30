@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <s:Application xmlns:fx="http://ns.adobe.com/mxml/2009"
                xmlns:s="library://ns.adobe.com/flex/spark"
-               xmlns:lib="some.external.lib.*" xmlns:classes="some.useful.classes.*">
+               xmlns:classes="some.useful.classes.*" xmlns:pattern="my.pattern.*">
     <fx:Script>
 		<![CDATA[
-        import some.external.lib.BoardItem;
+        import my.pattern.BoardItem;
+        import my.pattern.MyFacade;
 
         [Bindable]
         private var pointString:String = '{"x1":100,"y1":100,"x2":150,"y2":150}';
 
         protected function drawBoardButton_clickHandler(event:MouseEvent):void {
             var point:Object = JSON.parse(pointString);
-            var bi:BoardItem = new BoardItem();
+            var bi:BoardItem = new MyFacade();
             board.drawBoardItem(bi, point.x1, point.x2, point.y1, point.y2, textInput.text);
         }
         ]]>
@@ -29,10 +30,10 @@
         <s:TextInput id="textInput" text="The quick brown fox"/>
     </s:HGroup>
 
-    <lib:Board id="board" width="100%" height="200"
-               title="How to draw to the Board using the LineGroup???">
-        <lib:layout>
+    <pattern:Board id="board" width="100%" height="200"
+                   title="How to draw to the Board using the LineGroup???">
+        <pattern:layout>
             <s:HorizontalLayout/>
-        </lib:layout>
-    </lib:Board>
+        </pattern:layout>
+    </pattern:Board>
 </s:Application>

@@ -17,5 +17,15 @@ package some.useful.classes
 			l.yTo = y2;
 			this.addElement(l);
 		}
+
+		public function sayHello():void
+		{
+
+		}
+
+		public function sayGoodBye():void
+		{
+
+		}
 	}
 }

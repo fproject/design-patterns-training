@@ -6,6 +6,8 @@
 		<![CDATA[
 		import my.patterns.MyBoardItem;
 
+		import some.external.lib.BoardItem;
+
 		[Bindable]
 		private var pointString:String = '{"x1":100,"y1":100,"x2":150,"y2":150}';
 
@@ -16,7 +18,7 @@
 
 		protected function drawBoardButton_clickHandler(event:MouseEvent):void {
 			var point:Object = JSON.parse(pointString);
-			var bi:MyBoardItem = new MyBoardItem();
+			var bi:BoardItem = new MyBoardItem();
 			board.drawBoardItem(bi, point.x1, point.x2, point.y1, point.y2);
 		}
 		]]>

@@ -5,11 +5,21 @@ import spark.components.Label;
 
 public class TextGroup extends HGroup
 {
-    public function drawText(msg:String):void
+    public function draw(msg:String):void
     {
         var lbl:Label = new Label();
         lbl.text = msg;
         this.addElement(lbl);
+    }
+
+    public function sayGreeding():void
+    {
+
+    }
+
+    public function saySomething():void
+    {
+
     }
 }
 }

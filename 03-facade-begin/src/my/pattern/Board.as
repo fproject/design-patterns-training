@@ -1,4 +1,4 @@
-package some.external.lib
+package my.pattern
 {
 	import spark.components.Panel;
 	
