@@ -2,7 +2,7 @@
 <module type="Flex" version="4">
   <component name="FlexBuildConfigurationManager" active="04-factory-method-complete">
     <configurations>
-      <configuration name="04-factory-method-complete" target-platform="Mobile" main-class="Main" output-file="Main.swf" output-folder="$MODULE_DIR$/out/production/01-adapter-begin">
+      <configuration name="04-factory-method-complete" target-platform="Mobile" main-class="Main" output-file="Main.swf" output-folder="$MODULE_DIR$/out/production/04-factory-method-complete">
         <dependencies target-player="20.0">
           <sdk name="4.15.0" />
         </dependencies>

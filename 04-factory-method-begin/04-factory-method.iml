@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module type="Flex" version="4">
-  <component name="FlexBuildConfigurationManager" active="01-factory-method-begin">
+  <component name="FlexBuildConfigurationManager" active="04-factory-method-begin">
     <configurations>
-      <configuration name="01-factory-method-begin" target-platform="Mobile" main-class="Main" output-file="Main.swf" output-folder="$MODULE_DIR$/out/production/01-adapter-begin">
+      <configuration name="04-factory-method-begin" target-platform="Mobile" main-class="Main" output-file="Main.swf" output-folder="$MODULE_DIR$/out/production/04-factory-method-begin">
         <dependencies target-player="20.0">
           <sdk name="4.15.0" />
         </dependencies>

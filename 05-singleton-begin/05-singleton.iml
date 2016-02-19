@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module type="Flex" version="4">
-  <component name="FlexBuildConfigurationManager" active="01-singleton-begin">
+  <component name="FlexBuildConfigurationManager" active="05-singleton-begin">
     <configurations>
-      <configuration name="01-singleton-begin" target-platform="Mobile" main-class="Main" output-file="Main.swf" output-folder="$MODULE_DIR$/out/production/01-adapter-begin">
+      <configuration name="05-singleton-begin" target-platform="Mobile" main-class="Main" output-file="Main.swf" output-folder="$MODULE_DIR$/out/production/05-singleton-begin">
         <dependencies target-player="20.0">
           <sdk name="4.15.0" />
         </dependencies>
