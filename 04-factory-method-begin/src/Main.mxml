@@ -21,8 +21,9 @@
 
         protected function animalSayButton_clickHandler(event:MouseEvent):void {
             textArea.text = null;
-            for each (var role:Animal in animals) {
-                textArea.appendText(role.say());
+            for each (var anmimal:Animal in animals) {
+                anmimal.init();
+                textArea.appendText(anmimal.say());
             }
         }
         ]]>

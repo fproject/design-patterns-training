@@ -1,8 +1,12 @@
 Đề bài:
 =======
 
-Hãy tận dụng class LineGroup để vẽ các đường chéo lên trên đối tượng đồ họa của lớp Board. Với yêu cầu phải dùng được hàm drawBoardItem của lớp Board.
+Hãy code lại chương trình sao cho:
+ - Việc tạo mới instance của các class Cat, Dog, Duck được đảm nhận bởi một phương thức chung nằm trong class Animal.
+ - Việc gọi đến hàm init() của các animal không phải làm ở trong animalSayButton_clickHandler của class Main nữa
 
 Hướng dẫn:
-- Sử dụng Adapter design patterns để thiết kế lớp MyBoardItem, thừa kế từ BoardItem và "adapt" hàm "draw" của lớp LineGroup thành hàm "drawLine" của lớp BoardItem.
-- Trong class Main hãy thêm đoạn code sử dụng MyBoardItem vào cuối hàm "drawBoardButton_clickHandler"
+- Sử dụng Factory Method design patterns để thiết kế lại lớp Animal, chẳng hạn như sau:
+    public static function createAnimal(type:Class):Animal
+    {...}
+- Đưa việc gọi init() vào trong factory method ở trên.

@@ -2,8 +2,13 @@ package my.patterns {
 public class Dog extends Animal {
     override public function say():String
     {
-        super.say();
-        return "Dog: Woof-woof-woof\r\n";
+        return super.say() + " Woof-woof-woof\r\n";
+    }
+
+    override public function init():void
+    {
+        super.init();
+        this.name = "A dog";
     }
 }
 }

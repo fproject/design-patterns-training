@@ -1,5 +1,6 @@
 package my.patterns {
 public class Animal {
+    public var name:String;
     private var isInitialized:Boolean;
     public function say():String
     {
