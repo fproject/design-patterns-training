@@ -1,0 +1,12 @@
+Đề bài:
+=======
+
+Hãy code lại chương trình sao cho:
+ - Việc tạo mới instance của các class Cat, Dog, Duck được đảm nhận bởi một phương thức chung nằm trong class Animal.
+ - Việc gọi đến hàm init() của các animal không phải làm ở trong animalSayButton_clickHandler của class Main nữa
+
+Hướng dẫn:
+- Sử dụng Factory Method design patterns để thiết kế lại lớp Animal, chẳng hạn như sau:
+    public static function createAnimal(type:Class):Animal
+    {...}
+- Đưa việc gọi init() vào trong factory method ở trên.
