@@ -46,7 +46,7 @@ public class TicketBuilder {
                 }
             }
 
-            throw new Error("Cannot parse ticket: Invalid header");
+            throw new Error("Cannot parse ticket header:\r\n" + head);
         }
 
         return parsedHeaderFields;
@@ -61,7 +61,9 @@ public class TicketBuilder {
             if(ticket.hasOwnProperty(field))
             {
                 ticket[field] = values[i];
+                continue;
             }
+            throw new Error("Cannot parse ticket body:\r\n" + body);
         }
 
         return ticket;
