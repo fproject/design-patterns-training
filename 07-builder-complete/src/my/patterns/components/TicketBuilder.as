@@ -55,11 +55,11 @@ public class TicketBuilder {
     private function parseBody(ticket:CinemaTicket, fields:Array, body:String):CinemaTicket
     {
         var values:Array = body.split("|");
-        for (var i:int = 0; i < fields.length && i < values.length; i++)
+        for (var i:int = 0; i < fields.length; i++)
         {
-            var field:String = fields[i];
-            if(ticket.hasOwnProperty(field))
+            if(i < values.length)
             {
+                var field:String = fields[i];
                 ticket[field] = values[i];
                 continue;
             }
