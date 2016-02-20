@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Application xmlns:fx="http://ns.adobe.com/mxml/2009"
+               xmlns:s="library://ns.adobe.com/flex/spark"
+               xmlns:views="my.patterns.views.*"
+               creationComplete="app_creationComplete(event)">
+    <fx:Declarations>
+        <fx:String id="ticketRawData">
+            title|screenNo|standard|price|rating|date|time|barcode
+            THE IMITATION GAME|14|ADULT|$10.20|12A|2016/02/20|19:30|0473827
+        </fx:String>
+    </fx:Declarations>
+    <fx:Script>
+        <![CDATA[
+        import mx.events.FlexEvent;
+
+        import my.patterns.components.TicketBuilder;
+
+        import my.patterns.models.CinemaTicket;
+
+        protected function app_creationComplete(event:FlexEvent):void
+        {
+            cinemaTicketView.model = (new TicketBuilder(ticketRawData)).ticket;
+        }
+        ]]>
+    </fx:Script>
+    <s:layout>
+        <s:VerticalLayout horizontalAlign="center" paddingTop="100"/>
+    </s:layout>
+    <views:CinemaTicketView id="cinemaTicketView"/>
+</s:Application>
