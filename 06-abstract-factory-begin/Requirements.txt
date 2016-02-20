@@ -2,11 +2,12 @@
 =======
 
 Hãy code lại chương trình sao cho:
- - Việc tạo mới instance của các class Cat, Dog, Duck được đảm nhận bởi một phương thức chung nằm trong class Animal.
- - Việc gọi đến hàm init() của các animal không phải làm ở trong animalSayButton_clickHandler của class Main nữa
+ - Việc tạo mới instance của các class Cat, Dog, Duck vẫn sử dụng factory method
+ - Đối với các đối tượng của các class thừa kế từ lớp Mammal, sau khi khởi tạo thì phải gán trường greeting bằng giá trị
+   trả về của hàm clapHands()
 
 Hướng dẫn:
-- Sử dụng Factory Method design patterns để thiết kế lại lớp Animal, chẳng hạn như sau:
-    public static function createAnimal(type:Class):Animal
-    {...}
-- Đưa việc gọi init() vào trong factory method ở trên.
+- Sử dụng Abstract Factory design patterns để thiết kế lại lớp AnimalFactory.
+- Thêm lớp MammalFactory thừa kế từ lớp
+  AnimalFactory và trong hàm createAnimal (sau khi đã bỏ static) cần bổ sung thêm việc gán giá trị greeting bằng
+  giá trị trả về của clapHand()
