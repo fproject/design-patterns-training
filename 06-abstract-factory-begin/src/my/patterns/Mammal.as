@@ -6,10 +6,5 @@ public class Mammal extends Animal{
     public function clapHands():String {
         return "[Clap! Clap!]";
     }
-
-    override public function say():String
-    {
-        return super.say() + clapHands();
-    }
 }
 }
