@@ -1,4 +1,20 @@
 Đề bài:
 =======
 
-Sử dụng Builder pattern viết lại class CinemaTicket, tách việc parse string và khởi tạo dữ liệu ra builder class
+Sử dụng Builder pattern viết lại class CinemaTicket:
+1. Thiết kế class TicketBuilder, tách việc parse string và khởi tạo dữ liệu ra builder class
+
+2. Chia việc parse dữ liệu thành 2 phần (2 method): parseHeader và parseBody. Theo thiết kế như sau:
+2.1. Mỗi khi parse header cần đảm bảo:
+    a) Dữ liệu chỉ được parse thành công nếu tất cả các trường của header phải tồn tại trong đối tượng CinemaTicket
+    b) Nếu có lỗi phải throw ra "Cannot parse ticket header:\r\n" + <nội dung header>
+2.2. Mỗi khi parse body cần đảm bảo:
+    a) Dữ liệu chỉ được parse thành công nếu tất cả các trường của header phải có giá trị,
+       tức là số lượng trường của body phải không được nhỏ hơn số lượng trường của header
+    b) Nếu có lỗi phải throw ra "Cannot parse ticket body:\r\n" + <nội dung body>
+
+3. Nâng cao:Hãy thiết kế thêm giao diện và chương trình để cho phép:
+ - Có thể parse nhiều dòng body
+ - Khi chương trình chạy thì hiển thị dữ liệu dòng đầu tiên
+ - Khi nhân nút "Next" thì hiển thị dữ liệu của dòng tiếp theo, "Previuos" thì hiển thị
+   dữ liệu của dòng trước.

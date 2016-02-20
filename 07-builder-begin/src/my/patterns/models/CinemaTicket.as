@@ -27,12 +27,12 @@ public class CinemaTicket {
     public function CinemaTicket(s:String) {
         if(s != null)
         {
-            s = rtrim(s);
+            s = ltrim(s);
             var arr:Array = s.split("\n");
             if(arr.length >= 2)
             {
                 var header:String = arr[0];
-                var content:String = rtrim(arr[1]);
+                var content:String = ltrim(arr[1]);
                 var fields:Array = header.split("|");
                 var values:Array = content.split("|");
                 for (var i:int = 0; i < fields.length && i < values.length; i++)
@@ -47,7 +47,7 @@ public class CinemaTicket {
         }
     }
 
-    private function rtrim(s:String):String
+    private function ltrim(s:String):String
     {
         var i:int = 0;
         while (i < s.length && (s.charAt(i) == " " || s.charAt(i) == "\t" || s.charAt(i) == "\n" || s.charAt(i) == "\r"))
