@@ -7,7 +7,8 @@ Hãy code lại chương trình sao cho:
    trả về của hàm clapHands()
 
 Hướng dẫn:
-- Sử dụng Abstract Factory design patterns để thiết kế lại lớp AnimalFactory.
+- Sử dụng Abstract Factory design patterns để thiết kế lại lớp AnimalFactory. Trong lớp AnimalFactory cần thiết kế hàm
+  getFactory, theo kiểu "factory method của factory".
 - Thêm lớp MammalFactory thừa kế từ lớp
   AnimalFactory và trong hàm createAnimal (sau khi đã bỏ static) cần bổ sung thêm việc gán giá trị greeting bằng
   giá trị trả về của clapHand()
