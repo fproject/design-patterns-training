@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Application xmlns:fx="http://ns.adobe.com/mxml/2009"
+               xmlns:s="library://ns.adobe.com/flex/spark"
+               creationComplete="creationCompleteHandler(event)">
+    <s:layout>
+        <s:VerticalLayout horizontalAlign="center" paddingTop="100"/>
+    </s:layout>
+    <fx:Script><![CDATA[
+        import utils.ImageUtil;
+
+        import my.patterns.runwaymodels.Model;
+
+        import mx.events.FlexEvent;
+
+        import my.patterns.decorators.*;
+
+        import my.patterns.runwaymodels.Claudia;
+
+        import spark.components.Image;
+
+        private var ensemble:Array = [];
+
+        private function creationCompleteHandler(event:FlexEvent):void {
+            var model:Model = new Claudia();
+            model = model.wear(Hat).wear(OrangeDress).wear(BlueDress).wear(Umbrella).wear(Bow).wear(Muff);
+            var ready2wear:String = model.getDressed();
+            sewing(ready2wear);
+
+            for (x = 1; x < ensemble.length; x++) {
+                clothesOn(ensemble[x]);
+            }
+
+            goCatwalk(ensemble[0]);
+        }
+
+        private function sewing(wardrobe:String):Array {
+            ensemble = wardrobe.split("~");
+            ensemble.shift();
+            return ensemble;
+        }
+
+        private function goCatwalk(modelName:String):void {
+            var imageUtil:ImageUtil = ImageUtil.getInstance();
+            if (imageUtil.hasOwnProperty(modelName)) {
+                var modelImage:Image = new Image();
+                modelImage.source = imageUtil[modelName];
+                this.addElementAt(modelImage, 0);
+            }
+        }
+
+        private function clothesOn(outfit:String):void {
+            var imageUtil:ImageUtil = ImageUtil.getInstance();
+            if (imageUtil.hasOwnProperty(outfit)) {
+                var clothier:Image = new Image();
+                clothier.source = imageUtil[outfit];
+                clothesGroup.addElement(clothier);
+            }
+        }
+        ]]></fx:Script>
+    <s:HGroup id="clothesGroup" width="100%" verticalAlign="middle" horizontalAlign="center"/>
+</s:Application>
