@@ -15,8 +15,6 @@
 
         import my.patterns.components.TicketBuilder;
 
-        import my.patterns.models.CinemaTicket;
-
         protected function app_creationComplete(event:FlexEvent):void
         {
             cinemaTicketView.model = (new TicketBuilder(ticketRawData)).ticket;
