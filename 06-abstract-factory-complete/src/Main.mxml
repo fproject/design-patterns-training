@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Application xmlns:fx="http://ns.adobe.com/mxml/2009"
+               xmlns:s="library://ns.adobe.com/flex/spark">
+    <fx:Script>
+		<![CDATA[
+        import my.patterns.AnimalFactory;
+        import my.patterns.Dog;
+        import my.patterns.Cat;
+        import my.patterns.Duck;
+        import my.patterns.Animal;
+
+        private var animals:Vector.<Animal> = new <Animal>[];
+
+        protected function addAnimalButton_clickHandler(event:MouseEvent):void {
+            if (catRadio.selected)
+                animals.push(AnimalFactory.getFactory(Cat).createAnimal(Cat));
+            else if (duckRadio.selected)
+                animals.push(AnimalFactory.getFactory(Duck).createAnimal(Duck));
+            else
+                animals.push(AnimalFactory.getFactory(Dog).createAnimal(Dog));
+        }
+
+        protected function animalSayButton_clickHandler(event:MouseEvent):void {
+            textArea.text = null;
+            for each (var role:Animal in animals) {
+                textArea.appendText(role.say());
+            }
+        }
+        ]]>
+	</fx:Script>
+
+    <s:layout>
+        <s:VerticalLayout/>
+    </s:layout>
+
+    <s:FormItem label="Choose object type">
+        <s:RadioButton id="catRadio" label="Cat" groupName="g" selected="true"/>
+        <s:RadioButton id="duckRadio" label="Duck" groupName="g"/>
+        <s:RadioButton id="dogRadio" label="Dog" groupName="g"/>
+    </s:FormItem>
+    <s:Button id="addObjectButton" label="Add animal" click="addAnimalButton_clickHandler(event)"/>
+    <s:Button id="slapStickButton" label="Let them say!" click="animalSayButton_clickHandler(event)"/>
+    <s:TextArea width="100%" id="textArea" height="300"/>
+</s:Application>
