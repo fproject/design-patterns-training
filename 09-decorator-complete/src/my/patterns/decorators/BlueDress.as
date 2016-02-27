@@ -1,12 +1,9 @@
 package my.patterns.decorators {
-import my.patterns.*;
 import my.patterns.runwaymodels.Model;
 
-public class BlueDress extends AbstractDresser {
-    private var model:Model;
-
+public class BlueDress extends AbstractDresser{
     public function BlueDress(model:Model) {
-        this.model = model;
+        super(model);
     }
 
     override public function getDressed():String {

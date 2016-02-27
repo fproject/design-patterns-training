@@ -6,6 +6,8 @@
         <s:VerticalLayout horizontalAlign="center" paddingTop="100"/>
     </s:layout>
     <fx:Script><![CDATA[
+        import my.patterns.runwaymodels.Model;
+
         import utils.ImageUtil;
 
         import my.patterns.runwaymodels.Model;
@@ -23,7 +25,9 @@
         private function creationCompleteHandler(event:FlexEvent):void {
             var model:Model = new Claudia();
             model = model.wear(Hat).wear(OrangeDress).wear(BlueDress).wear(Umbrella).wear(Bow).wear(Muff);
+
             var ready2wear:String = model.getDressed();
+
             sewing(ready2wear);
 
             for (x = 1; x < ensemble.length; x++) {
@@ -40,20 +44,20 @@
         }
 
         private function goCatwalk(modelName:String):void {
-            var imageUtil:ImageUtil = ImageUtil.getInstance();
-            if (imageUtil.hasOwnProperty(modelName)) {
+            var prepareModel:Class = ImageUtil.getInstance().prepareToCatwalk(modelName);
+            if (prepareModel) {
                 var modelImage:Image = new Image();
-                modelImage.source = imageUtil[modelName];
+                modelImage.source = prepareModel;
                 this.addElementAt(modelImage, 0);
             }
         }
 
-        private function clothesOn(outfit:String):void {
-            var imageUtil:ImageUtil = ImageUtil.getInstance();
-            if (imageUtil.hasOwnProperty(outfit)) {
-                var clothier:Image = new Image();
-                clothier.source = imageUtil[outfit];
-                clothesGroup.addElement(clothier);
+        private function clothesOn(cloth:String):void {
+            var preparedCloth:Class = ImageUtil.getInstance().prepareToCatwalk(cloth);
+            if (preparedCloth != null) {
+                var modelImage:Image = new Image();
+                modelImage.source = preparedCloth;
+                clothesGroup.addElement(modelImage);
             }
         }
         ]]></fx:Script>

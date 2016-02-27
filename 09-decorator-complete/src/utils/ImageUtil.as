@@ -28,5 +28,12 @@ public class ImageUtil {
         return _instance;
     }
 
+    public function prepareToCatwalk(cloth:String):Class
+    {
+        if(this.hasOwnProperty(cloth))
+            return this[cloth] as Class;
+        return null;
+    }
+
 }
 }
