@@ -1,4 +1,24 @@
 Đề bài:
 =======
 
-Sử dụng Builder pattern viết lại class CinemaTicket, tách việc parse string và khởi tạo dữ liệu ra builder class
+Sử dụng Builder pattern thiết kế lại toàn bộ package my.patterns và sửa lại client code trong class Main
+để chương trình chạy giống như ban đầu.
+
+Gợi ý:
+
+1. Sử dụng ý tưởng của decorator: mỗi "phụ kiện" giờ sẽ là một "người mẫu mang phụ kiện", ví dụ chiếc mũ giờ phải thiết
+   kế thành "người mẫu mang mũ". Để làm được như thế thì cần sửa:
+ - Tất cả các "phụ kiện" như BlueDress, Bow, Hat sẽ chuyển sang thừa kế từ một lớp mới là AbstractDresser (lớp này
+   thừa kế từ Model).
+ - Trong AbstractDresser ("phụ kiện") có một biến thành viên model có kiểu Model ("người mẫu")
+ - Trong mỗi concrete class của AbstractDresser (vd: BlueDress, Bow, Hat...) cần viết lại hàm getDressed, trả về
+   biểu thức model.getDressed() + "~<tên file ảnh của phụ kiện>";
+
+2. Để cho dễ code ở phía client, có thể thêm một factory class trong lớp Model:
+        public function wear(dresserClass:Class):Model
+
+3. Sửa class Main:
+ - Sử dụng biểu thức  model = model.wear(Hat), hoặc model = new Hat(model)
+   để "đeo phụ kiện" Hat vào cho model và tạo thành một model mới. Nếu thực hiện như bước 2. ở trên thì có thể gọi
+   liên tiếp các hàm wear với tham số là tên các class phụ kiện (decorator class).
+ - Bỏ hàm getDressed trong Main class đi, dùng hàm getDressed của model sau khi đã thực hiện các hành động "đeo phụ kiện"

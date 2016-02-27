@@ -43,7 +43,7 @@
             goCatwalk(ensemble[0]);
         }
 
-        private function getDressed(modelAndClothes:Array):String {
+        private static function getDressed(modelAndClothes:Array):String {
             var s:String = "";
             for each (var m:Model in modelAndClothes) {
                 s += m.getDressed();
