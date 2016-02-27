@@ -6,7 +6,7 @@
         <s:VerticalLayout horizontalAlign="center" paddingTop="100"/>
     </s:layout>
     <fx:Script><![CDATA[
-        import utils.ImageUtil;
+        import utils.ClothingUtil;
 
         import my.patterns.runwaymodels.Model;
 
@@ -42,7 +42,7 @@
         }
 
         private function goCatwalk(modelName:String):void {
-            var prepareModel:Class = ImageUtil.getInstance().prepareToCatwalk(modelName);
+            var prepareModel:Class = ClothingUtil.getInstance().prepareToCatwalk(modelName);
             if (prepareModel) {
                 var modelImage:Image = new Image();
                 modelImage.source = prepareModel;
@@ -51,7 +51,7 @@
         }
 
         private function clothesOn(cloth:String):void {
-            var preparedCloth:Class = ImageUtil.getInstance().prepareToCatwalk(cloth);
+            var preparedCloth:Class = ClothingUtil.getInstance().prepareToCatwalk(cloth);
             if (preparedCloth != null) {
                 var modelImage:Image = new Image();
                 modelImage.source = preparedCloth;

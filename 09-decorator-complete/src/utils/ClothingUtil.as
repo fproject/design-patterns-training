@@ -1,8 +1,5 @@
-/**
- * Created by nguye on 2/27/2016.
- */
 package utils {
-public class ImageUtil {
+public class ClothingUtil {
     [Embed(source="claudia.png")]
     public var claudia:Class;
     [Embed(source="bluedress.png")]
@@ -18,12 +15,12 @@ public class ImageUtil {
     [Embed(source="umbrella.png")]
     public var umbrella:Class;
 
-    private static var _instance:ImageUtil;
-    public static function getInstance():ImageUtil
+    private static var _instance:ClothingUtil;
+    public static function getInstance():ClothingUtil
     {
         if(_instance == null)
         {
-            _instance = new ImageUtil();
+            _instance = new ClothingUtil();
         }
         return _instance;
     }
