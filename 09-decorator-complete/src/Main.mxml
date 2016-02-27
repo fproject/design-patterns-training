@@ -6,8 +6,6 @@
         <s:VerticalLayout horizontalAlign="center" paddingTop="100"/>
     </s:layout>
     <fx:Script><![CDATA[
-        import my.patterns.runwaymodels.Model;
-
         import utils.ImageUtil;
 
         import my.patterns.runwaymodels.Model;
