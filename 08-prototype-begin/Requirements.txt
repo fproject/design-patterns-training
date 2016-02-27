@@ -1,4 +1,4 @@
 Đề bài:
 =======
 
-Sử dụng Builder pattern viết lại class CinemaTicket, tách việc parse string và khởi tạo dữ liệu ra builder class
+Sử dụng Prototype pattern viết lại class AnimalFactory

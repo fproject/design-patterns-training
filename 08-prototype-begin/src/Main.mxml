@@ -3,8 +3,6 @@
                xmlns:s="library://ns.adobe.com/flex/spark">
     <fx:Script>
 		<![CDATA[
-        import my.patterns.Animal;
-        import my.patterns.AnimalFactory;
         import my.patterns.Dog;
         import my.patterns.Cat;
         import my.patterns.Duck;
