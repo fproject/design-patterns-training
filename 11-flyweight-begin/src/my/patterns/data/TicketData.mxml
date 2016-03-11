@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<fx:Object xmlns:fx="http://ns.adobe.com/mxml/2009">
+    <fx:Declarations>
+        <fx:String id="ticketRawData">
+            title|screenNo|standard|price|rating|date|time|barcode
+            THE IMITATION GAME|14|ADULT|$10.20|12A|2016/02/20|19:30|0473827
+        </fx:String>
+    </fx:Declarations>
+</fx:Object>

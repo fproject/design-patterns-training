@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<!--
+  The view class of a Cinema Ticket
+-->
+<s:Group xmlns:fx="http://ns.adobe.com/mxml/2009" xmlns:s="library://ns.adobe.com/flex/spark">
+    <fx:Script>
+        <![CDATA[
+        import mx.managers.PopUpManager;
+
+        import my.patterns.models.CinemaTicket;
+
+        [Bindable]
+        public var model:CinemaTicket;
+
+        [Bindable]
+        public var avatar:Object;
+
+        private function closeButton_clickHandler(event:MouseEvent):void {
+            PopUpManager.removePopUp(this);
+        }
+        ]]>
+    </fx:Script>
+    <s:Image source="@Embed('ticket.png')"/>
+    <s:Label id="titleLabel" text="{model.title}" x="45" y="57" fontFamily="Arial" fontWeight="bold" fontSize="35"/>
+
+    <s:Label id="standardLabel" text="{model.standard}" x="640" y="26" fontFamily="Arial" fontWeight="normal" fontSize="20"
+             rotation="90"/>
+
+    <s:Label id="sreenNoLabel" text="{model.screenNo}" x="45" y="150" fontFamily="Arial" fontWeight="bold" fontSize="30"/>
+
+    <s:Image id="avatarImage" source="{avatar}" x="150" y="130"/>
+
+    <s:Label id="priceLabel" text="{model.price}" x="45" y="243" fontFamily="Arial" fontWeight="bold" fontSize="20"/>
+    <s:Label id="dateLabel" text="{model.date}" x="147" y="243" fontFamily="Arial" fontWeight="bold" fontSize="20"/>
+    <s:Label id="timeLabel" text="{model.time}" x="277" y="243" fontFamily="Arial" fontWeight="bold" fontSize="20"/>
+    <s:Label id="ratingLabel" text="{model.rating}" x="494" y="243" fontFamily="Arial" fontWeight="bold" fontSize="20"/>
+
+    <s:Label id="barcodeLabel" text="{model.barcode}" x="475" y="318" fontFamily="Arial" fontWeight="normal" fontSize="15"/>
+    <s:Button label="Close" id="closeButton" x="15" y="280" height="60" click="closeButton_clickHandler(event)"/>
+</s:Group>

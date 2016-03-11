@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Application xmlns:fx="http://ns.adobe.com/mxml/2009"
+               xmlns:s="library://ns.adobe.com/flex/spark">
+    <fx:Declarations>
+        <fx:String id="ticketRawData">
+            title|screenNo|standard|price|rating|date|time|barcode
+            THE IMITATION GAME|14|ADULT|$10.20|12A|2016/02/20|19:30|0473827
+        </fx:String>
+    </fx:Declarations>
+    <fx:Script>
+		<![CDATA[
+        import mx.managers.PopUpManager;
+
+        import my.patterns.AnimalFactory;
+        import my.patterns.Dog;
+        import my.patterns.Cat;
+        import my.patterns.Duck;
+        import my.patterns.Animal;
+        import my.patterns.views.CinemaTicketView;
+
+        import org.apache.flex.collections.VectorCollection;
+
+        import spark.events.IndexChangeEvent;
+
+        [Bindable]
+        protected var animalCollection;
+
+        protected function addAnimalButton_clickHandler(event:MouseEvent):void {
+            var animals:Vector.<Animal> = new <Animal>[]
+            for (var i:int = 1; i < 5000; i++) {
+                var r:Number = 10 * Math.random();
+                if (r < 3.3)
+                    animals.push(AnimalFactory.getFactory(Cat).createAnimal(Cat));
+                else if (r < 6.6)
+                    animals.push(AnimalFactory.getFactory(Duck).createAnimal(Duck));
+                else
+                    animals.push(AnimalFactory.getFactory(Dog).createAnimal(Dog));
+            }
+            animalCollection = new VectorCollection(animals)
+        }
+
+        protected function getWhatItSaid(animal:Animal):String {
+            return animal.say();
+        }
+
+        private function animalList_changeHandler(event:IndexChangeEvent):void {
+            var view:CinemaTicketView = new CinemaTicketView();
+            var animal:Animal = animalList.dataProvider.getItemAt(event.newIndex) as Animal;
+            view.model = animal.ticket;
+            view.avatar = animal.avatar;
+            PopUpManager.addPopUp(view, this, true);
+            PopUpManager.centerPopUp(view);
+        }
+        ]]>
+	</fx:Script>
+
+    <s:layout>
+        <s:VerticalLayout/>
+    </s:layout>
+
+    <s:Button id="addObjectButton" label="Generate animals" click="addAnimalButton_clickHandler(event)"/>
+    <s:List id="animalList" dataProvider="{animalCollection}"
+            labelFunction="{getWhatItSaid}"
+            width="100%" height="100%" change="animalList_changeHandler(event)"/>
+</s:Application>
